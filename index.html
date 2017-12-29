@@ -1,20 +1,151 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Flash MP3 Player</title>
-</head>
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style>
+	body{background:url("images/bg.jpg");background-size:cover;/*自适应*/}
+	*{margin:0px;padding:0px;}
+
+	.wrap{width:536px;height:534px;background:url("images/yybw.png"),url("images/bg1.png") no-repeat center center;/*多重背景*/position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;/*正中间*/}
+	.wrap .paly{position:absolute;top:60px;left:60px; }
+
+	.spin{animation:spin 5s linear infinite; /*调用css*/}
+
+	.wrap .yy{width:300px;height:300px;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;}
+
+
+	.wrap .yy p{color:#fff;text-align:center;}
+
+	.wrap .yy p.sn{font-size:40px;color:#3CC;line-height:50px;}
+
+	.wrap .yy .star{border-radius:50%;margin-left:90px;margin-top:30px;}
+
+	.wrap .yy .btn{position:relative;top:-35px;left:-95px;cursor:pointer;}
+	a{text-decoration:none;color:#fff;font-size:20px;display:block;font-weight:bold;float:left;text-align:center;width:48%;padding-top:40px;}
+
+	.wrap .yy .ht{background:url("images/ht.png") no-repeat  60px 10px;/*背景图片定位*/}
+
+	.wrap .yy .next{background:url("images/next.png") no-repeat 60px 10px;}
+
+	/*css3动画*/
+	@keyframes spin{
+
+		/*时候开始，地址，动作*/
+		from{transform:rotate(0deg);}
+		to{transform:rotate(360deg);}
+
+	}
+
+
+	</style>
+ </head>
+
+
 <body>
+	<div class="wrap">
+		<div class="paly">
+			<img src="images/yyjd.png"/>
+		</div>
 
-<div style="width:156px;height:274px;margin:40px auto 0 auto;">
-	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="156" height="274">
-		<param name="movie" value="media.swf" />
-		<param name="quality" value="high" />
-		<param name="allowScriptAccess" value="always" />
-		<param name="wmode" value="transparent">
-		<embed src="media.swf" quality="high" type="application/x-shockwave-flash" WMODE="transparent" width="156" height="274" pluginspage="http://www.macromedia.com/go/getflashplayer"allowScriptAccess="always" />
-	</object>
-</div>
+		<div class="yy">
+			<p class="gn">Aileen</p>
+			<p class="sn">A</p>
+			<img class="star" src="images/0.jpg" width="120px" height="120px"/>
+			<img class="btn" src="images/play.png" />
+			<a class="ht">好听</a> <a class="next">切歌</a>
+			<audio id="music" src="music/A.mp3"></audio><!--歌曲-->
+		</div>
+	</div>
 
-</body>
+
+	<!--引入jquery-->
+	<script src="js/jquery.js"></script>
+	<script>
+		var gm=["Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen"];//歌手
+		var sn=["A","I","L","E","N","B","C","D","F","G","H","J","K","M","O"];//歌曲
+
+		//标记
+		var mark=true;
+		var i=0;//控制歌曲数量
+
+        var audio=document.getElementById("music");
+		audio.addEventListener('ended',function(){
+		
+		i++;
+		$("p.gn").text(gm[i]);//修改歌手
+
+		$("p.sn").text(sn[i]);//修改歌曲
+
+		$(".star").attr("src","images/"+i+".jpg");//修改头像
+
+		$("#music").attr("src","music/"+sn[i]+".mp3");
+		$("#music").get(0).play();
+
+		$(".btn").attr("src","images/pause.png");
+				$(".paly").addClass("spin");
+				$(".star").addClass("spin");
+				mark=false;
+		
+		},false);
+
+
+		//点击按钮播放听音乐
+		$(".btn").click(function(){
+			//如果音乐正在播放暂停
+			if(mark)
+			{
+				$("#music").get(0).play();//$("#music").get(0).play();
+				$(this).attr("src","images/pause.png");
+				$(".paly").addClass("spin");
+				$(".star").addClass("spin");
+				mark=false;
+			}
+			else
+			{
+				$("#music").get(0).pause();
+				$(this).attr("src","images/play.png");
+				$(".paly").removeClass("spin");
+				$(".star").removeClass("spin");
+				mark=true;
+			}
+		});
+		
+		//切歌
+		$(".next").click(function(){
+		
+			i++;
+			if(i>14)
+			{
+				i=0;
+			}
+			$("p.gn").text(gm[i]);//修改歌手
+
+			$("p.sn").text(sn[i]);//修改歌曲
+
+			$(".star").attr("src","images/"+i+".jpg");//修改头像
+			
+			//切换歌曲
+
+			$("#music").attr("src","music/"+sn[i]+".mp3");
+			$("#music").get(0).play();
+			
+			$(".btn").attr("src","images/pause.png");
+				$(".paly").addClass("spin");
+				$(".star").addClass("spin");
+				mark=false;
+		});
+		
+
+         
+		
+
+	</script>
+
+
+ </body>
 </html>
