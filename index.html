@@ -11,7 +11,7 @@
 	body{background:url("images/bg.jpg");background-size:cover;/*自适应*/}
 	*{margin:0px;padding:0px;}
 
-	.wrap{width:536px;height:534px;background:url("images/yybw.png"),url("images/bg1.png") no-repeat center center;/*多重背景*/position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;/*正中间*/}
+	.wrap{width:536px;height:534px;background:url("images/yybw.png")no-repeat center center;/*多重背景*/position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;/*正中间*/}
 	.wrap .paly{position:absolute;top:60px;left:60px; }
 
 	.spin{animation:spin 5s linear infinite; /*调用css*/}
@@ -53,12 +53,12 @@
 		</div>
 
 		<div class="yy">
-			<p class="gn">Aileen</p>
-			<p class="sn">A</p>
-			<img class="star" src="images/0.jpg" width="120px" height="120px"/>
+			<p class="gn">庄心妍</p>
+			<p class="sn">再见只是陌生人</p>
+			<img class="star" src="images/0.png" width="120px" height="120px"/>
 			<img class="btn" src="images/play.png" />
 			<a class="ht">好听</a> <a class="next">切歌</a>
-			<audio id="music" src="music/A.mp3"></audio><!--歌曲-->
+			<audio id="music" src="music/再见只是陌生人.mp3"></audio><!--歌曲-->
 		</div>
 	</div>
 
@@ -66,8 +66,8 @@
 	<!--引入jquery-->
 	<script src="js/jquery.js"></script>
 	<script>
-		var gm=["Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen","Aileen"];//歌手
-		var sn=["A","I","L","E","N","B","C","D","F","G","H","J","K","M","O"];//歌曲
+		var gm=["庄心妍","Aileen","JC","胡","金志文","岑宁儿","王笑文","马郁","任然","王冕","Carly Rae Jepsen","张赫宣","Adele","Colbie Caillat","李行亮","Carly Rae Jepsen"];//歌手
+		var sn=["再见只是陌生人","青春","说散就散","空空如也","远走高飞","追光者","耿耿于怀","再见习惯","走不出的回忆","勉为其难","I Really Like You","我们不该这样的","Hello","Try","原来这都是梦","Cut To The Feeling"];//歌曲
 
 		//标记
 		var mark=true;
@@ -81,7 +81,7 @@
 
 		$("p.sn").text(sn[i]);//修改歌曲
 
-		$(".star").attr("src","images/"+i+".jpg");//修改头像
+		$(".star").attr("src","images/"+i+".png");//修改头像
 
 		$("#music").attr("src","music/"+sn[i]+".mp3");
 		$("#music").get(0).play();
@@ -127,7 +127,7 @@
 
 			$("p.sn").text(sn[i]);//修改歌曲
 
-			$(".star").attr("src","images/"+i+".jpg");//修改头像
+			$(".star").attr("src","images/"+i+".png");//修改头像
 			
 			//切换歌曲
 
