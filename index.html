@@ -77,6 +77,10 @@
 		audio.addEventListener('ended',function(){
 		
 		i++;
+		if(i>14)
+		{
+		  i=0;
+		}
 		$("p.gn").text(gm[i]);//修改歌手
 
 		$("p.sn").text(sn[i]);//修改歌曲
