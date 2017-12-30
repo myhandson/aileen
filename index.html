@@ -33,13 +33,13 @@
 	.wrap .yy .next{background:url("images/next.png") no-repeat 60px 10px;}
 
 	/*css3动画*/
-	/*@keyframes spin{
+	@keyframes spin{
 
 		from{transform:rotate(0deg);}
 		to{transform:rotate(360deg);}
 
 	}
-	*/
+	
 
 
 	</style>
@@ -88,7 +88,7 @@
 
 		$(".btn").attr("src","images/pause.png");
 				$(".paly").addClass("spin");
-				$(".star").addClass("spin");
+			
 				mark=false;
 		
 		},false);
@@ -102,7 +102,7 @@
 				$("#music").get(0).play();//$("#music").get(0).play();
 				$(this).attr("src","images/pause.png");
 				$(".paly").addClass("spin");
-				$(".star").addClass("spin");
+			
 				mark=false;
 			}
 			else
@@ -110,7 +110,7 @@
 				$("#music").get(0).pause();
 				$(this).attr("src","images/play.png");
 				$(".paly").removeClass("spin");
-				$(".star").removeClass("spin");
+		
 				mark=true;
 			}
 		});
@@ -136,7 +136,6 @@
 			
 			$(".btn").attr("src","images/pause.png");
 				$(".paly").addClass("spin");
-				$(".star").addClass("spin");
 				mark=false;
 		});
 		
