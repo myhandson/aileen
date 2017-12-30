@@ -33,13 +33,13 @@
 	.wrap .yy .next{background:url("images/next.png") no-repeat 60px 10px;}
 
 	/*css3动画*/
-	/*@keyframes spin{
+	@keyframes spin{
 
+		/*时候开始，地址，动作*/
 		from{transform:rotate(0deg);}
 		to{transform:rotate(360deg);}
 
 	}
-	*/
 
 
 	</style>
