@@ -62,7 +62,7 @@
 			<img class="star" src="images/0.png" width="120px" height="120px"/>
 			<img class="btn" src="images/play.png" />
 			<a class="ht">好听</a> <a class="next">切歌</a>
-			<audio id="music" src="music/再见只是陌生人.mp3"></audio><!--歌曲-->
+			<audio id="music" src="music/0.mp3"></audio><!--歌曲-->
 		</div>
 	</div>
 
@@ -85,7 +85,7 @@
 
 		$(".star").attr("src","images/"+num+".png");//修改头像
 
-		$("#music").attr("src","music/"+sn[num]+".mp3");
+		$("#music").attr("src","music/"+num+".mp3");
 		$("#music").get(0).play();
 
 		$(".btn").attr("src","images/pause.png");
@@ -111,7 +111,7 @@
 			
 			//切换歌曲
 
-			$("#music").attr("src","music/"+sn[num]+".mp3");
+			$("#music").attr("src","music/"+num+".mp3");
 			$("#music").get(0).play();
 			
 			$(".btn").attr("src","images/pause.png");
