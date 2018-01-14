@@ -6,11 +6,8 @@
   <meta name="Author" content="">
   <meta name="Keywords" content="">
   <meta name="Description" content="">
-	<script type="text/javascript" src="js/jquery.js"></script>
-
-  <title>Happier,Richer,Luckier,Healthier in 2018--Aileen！</title>
+  <title>AiLeen,2018,Happier,Richer！</title>
 	<style>
-	
 	body{background:url("images/bg.jpg");background-size:cover;/*自适应*/}
 	*{margin:0px;padding:0px;}
 
@@ -34,7 +31,6 @@
 	.wrap .yy .ht{background:url("images/ht.png") no-repeat  60px 10px;/*背景图片定位*/}
 
 	.wrap .yy .next{background:url("images/next.png") no-repeat 60px 10px;}
-	
 
 	/*css3动画*/
 	@keyframes spin{
@@ -45,12 +41,12 @@
 	}
 	
 
+
 	</style>
  </head>
 
 
 <body>
-	
 	<div class="wrap">
 		<div class="paly">
 			<img src="images/yyjd.png"/>
@@ -67,57 +63,40 @@
 	</div>
 
 
-<script>
-		var gm=["庄心妍","刘惜君","Aileen","JC","胡","金志文","岑宁儿","王笑文","马郁","任然","王冕","Carly Rae Jepsen","张赫宣","Adele","Colbie Caillat","李行亮","Carly Rae Jepsen"];//歌手
-		var sn=["再见只是陌生人","遥远的歌","青春","说散就散","空空如也","远走高飞","追光者","耿耿于怀","再见习惯","走不出的回忆","勉为其难","I Really Like You","我们不该这样的","Hello","Try","原来这都是梦","Cut To The Feeling"];//歌曲
+	<!--引入jquery-->
+	<script src="js/jquery.js"></script>
+	<script>
+		var gm=["庄心妍","Aileen","刘惜君","JC","胡","金志文","岑宁儿","王笑文","马郁","任然","王冕","Carly Rae Jepsen","张赫宣","Adele","Colbie Caillat","李行亮","Carly Rae Jepsen"];//歌手
+		var sn=["再见只是陌生人","青春","遥远的歌","说散就散","空空如也","远走高飞","追光者","耿耿于怀","再见习惯","走不出的回忆","勉为其难","I Really Like You","我们不该这样的","Hello","Try","原来这都是梦","Cut To The Feeling"];//歌曲
 
 		//标记
 		var mark=true;
-		var num=0;//控制歌曲数量
+		var i=0;//控制歌曲数量
 
         var audio=document.getElementById("music");
 		audio.addEventListener('ended',function(){
 		
-		num++;
-		$("p.gn").text(gm[num]);//修改歌手
+		i++;
+		if(i>16)
+		{
+		  i=0;
+		}
+		$("p.gn").text(gm[i]);//修改歌手
 
-		$("p.sn").text(sn[num]);//修改歌曲
+		$("p.sn").text(sn[i]);//修改歌曲
 
-		$(".star").attr("src","images/"+num+".png");//修改头像
+		$(".star").attr("src","images/"+i+".png");//修改头像
 
-		$("#music").attr("src","music/"+sn[num]+".mp3");
+		$("#music").attr("src","music/"+sn[i]+".mp3");
 		$("#music").get(0).play();
 
 		$(".btn").attr("src","images/pause.png");
 				$(".paly").addClass("spin");
+			
 				mark=false;
 		
 		},false);
 
-
-		//切歌
-		$(".next").click(function(){
-		
-			num++;
-			if(num>16)
-			{
-				num=0;
-			}
-			$("p.gn").text(gm[num]);//修改歌手
-
-			$("p.sn").text(sn[num]);//修改歌曲
-
-			$(".star").attr("src","images/"+num+".png");//修改头像
-			
-			//切换歌曲
-
-			$("#music").attr("src","music/"+sn[num]+".mp3");
-			$("#music").get(0).play();
-			
-			$(".btn").attr("src","images/pause.png");
-				$(".paly").addClass("spin");
-				mark=false;
-		});
 
 		//点击按钮播放听音乐
 		$(".btn").click(function(){
@@ -127,6 +106,7 @@
 				$("#music").get(0).play();//$("#music").get(0).play();
 				$(this).attr("src","images/pause.png");
 				$(".paly").addClass("spin");
+			
 				mark=false;
 			}
 			else
@@ -134,12 +114,41 @@
 				$("#music").get(0).pause();
 				$(this).attr("src","images/play.png");
 				$(".paly").removeClass("spin");
+		
 				mark=true;
 			}
 		});
 		
+		//切歌
+		$(".next").click(function(){
 		
+			i++;
+			if(i>16)
+			{
+				i=0;
+			}
+			$("p.gn").text(gm[i]);//修改歌手
+
+			$("p.sn").text(sn[i]);//修改歌曲
+
+			$(".star").attr("src","images/"+i+".png");//修改头像
+			
+			//切换歌曲
+
+			$("#music").attr("src","music/"+sn[i]+".mp3");
+			$("#music").get(0).play();
+			
+			$(".btn").attr("src","images/pause.png");
+				$(".paly").addClass("spin");
+				mark=false;
+		});
 		
+
+         
+		
+
 	</script>
+
+
  </body>
 </html>
