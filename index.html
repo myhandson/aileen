@@ -79,14 +79,16 @@
 		audio.addEventListener('ended',function(){
 		
 		num++;
+		$("#music").attr("src","music/"+num+".mp3");
+		$("#music").get(0).play();
+
 		$("p.gn").text(gm[num]);//修改歌手
 
 		$("p.sn").text(sn[num]);//修改歌曲
 
 		$(".star").attr("src","images/"+num+".png");//修改头像
 
-		$("#music").attr("src","music/"+num+".mp3");
-		$("#music").get(0).play();
+		
 
 		$(".btn").attr("src","images/pause.png");
 				$(".paly").addClass("spin");
@@ -103,16 +105,19 @@
 			{
 				num=0;
 			}
+
+						//切换歌曲
+
+			$("#music").attr("src","music/"+num+".mp3");
+			$("#music").get(0).play();
+
 			$("p.gn").text(gm[num]);//修改歌手
 
 			$("p.sn").text(sn[num]);//修改歌曲
 
 			$(".star").attr("src","images/"+num+".png");//修改头像
 			
-			//切换歌曲
 
-			$("#music").attr("src","music/"+num+".mp3");
-			$("#music").get(0).play();
 			
 			$(".btn").attr("src","images/pause.png");
 				$(".paly").addClass("spin");
